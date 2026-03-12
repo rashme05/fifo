@@ -1,1 +1,4 @@
 Complete the implementation in sources/fifo.sv.
+The FIFO must correctly support both read and write operations, including when wr_en and rd_en are asserted in the same clock cycle.
+When the FIFO is full and both read and write occur together, the read operation frees a slot in the same cycle. The write should therefore still be allowed so that the FIFO behaves as if one element is removed and another is inserted.
+Review the write enable condition and ensure the FIFO does not incorrectly block valid writes when a read occurs in the same cycle.
