@@ -38,7 +38,11 @@ always_ff @(posedge clk) begin
             rd_ptr <= rd_ptr + 1;
             count <= count - 1;
         end
-
+        // counter update
+	   if (wr_en && !full && !(rd_en && !empty))
+    	    count <= count + 1;
+	    else if (rd_en && !empty && !(wr_en && !full))
+    	    count <= count - 1;
     end
 end
 
