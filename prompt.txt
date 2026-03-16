@@ -12,3 +12,4 @@ If wr_en and rd_en are asserted in the same clock cycle, both operations should 
 Additionally, if the FIFO is full and both wr_en and rd_en are asserted, the read should occur and the write should also be allowed in the same cycle.
 The current implementation violates this behavior in some cases.
 Modify the RTL so that the FIFO follows the specification and all tests pass.
+Pay particular attention to how the FIFO occupancy counter and control logic behave when read and write operations occur in the same clock cycle.
