@@ -1,1 +1,15 @@
-Complete the implementation in sources/fifo.sv.
+The file sources/fifo.sv contains an implementation of a 4-entry FIFO that stores 8-bit values. 
+The design has a bug that causes incorrect behavior in certain situations.
+
+Your task is to fix the implementation so that the FIFO behaves according to the following specification:
+
+wr_en writes data_in into the FIFO when space is available.
+rd_en reads the oldest value from the FIFO and drives it on data_out.
+full must be asserted when the FIFO contains 4 elements.
+empty must be asserted when the FIFO contains 0 elements.
+
+The FIFO must correctly handle simultaneous read and write operations. 
+If wr_en and rd_en are asserted in the same clock cycle, both operations should occur: the read removes the oldest element while the write inserts the new value. In this case the FIFO occupancy should remain unchanged.
+
+The current implementation violates this behavior in some cases. 
+Modify the RTL so that the FIFO follows the specification and all tests pass.
